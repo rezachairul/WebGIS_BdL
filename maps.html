@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MAPS WebGIS</title>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+</head>
+<body>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/popper.min.js"></script>
+
+    <!-- Navigasi -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <img src="assets/image/Logo Kota Balam.png" alt="Logo" width="40" height="50" class="d-inline-block align-text-top">
+            <a class="navbar-brand">Sistem Informasi Geografis Kota Bandar Lampung</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+    
+    <!-- Navigasi Menu -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#AboutUs">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="login.php">Login</a>
+                </li>
+                </ul>
+
+    <!-- Search -->
+                <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div id="map"></div>
+
+    <!-- Footer -->
+    <footer class="p-3 mt-5 bg-dark text-light">
+        <div class="container text-center">
+            <small> <span class="fw-bold">120140086_Reza Chairul Manam</span> &copy; Copyright 2023</small>
+        </div>
+    </footer>
+
+</body>
+<script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js" integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM=" crossorigin=""></script>
+<script type= text/javascript>
+    var map = L.map('map').setView([-5.4258978, 105.2602428], 10);
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+    // Creating a marker
+    var marker = L.marker([-5.4043591, 105.2206021]);
+    marker.bindPopup ('BBukit Sakura').openPopup();
+    // Adding marker to the map
+    marker.addTo(map);
+
+    var marker = L.marker([-5.411764, 105.2351095]);
+    marker.bindPopup ('Lembah Batu Heritage').openPopup();
+    marker.addTo(map);
+
+    var marker = L.marker([-5.4204737, 105.2284425]);
+    marker.bindPopup ('Bumi Kedaton').openPopup();
+    marker.addTo(map);
+
+    var marker = L.marker([-5.3997051, 105.1912101]);
+    marker.bindPopup ('Tahura WAR Lampung').openPopup();
+    marker.addTo(map);
+
+    var marker = L.marker([-5.436229, 105.229553]);
+    marker.bindPopup ('Puncsk Mas').openPopup();
+    marker.addTo(map);
+
+    var marker = L.marker([-5.434997, 105.2268539]);
+    marker.bindPopup ('Wira Garden').openPopup();
+    marker.addTo(map);
+
+    var marker = L.marker([-5.4201538, 105.1857204]);
+    marker.bindPopup ('Lengkung Langit').openPopup();
+    marker.addTo(map);
+
+
+    //geojson
+    var geojsonFeature = {
+        "type": "Feature",
+        "properties": {
+            "name": "Coors Field",
+            "amenity": "Baseball Stadium",
+            "popupContent": "This is where the Rockies play!"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [105.2602428, -5.4258978]
+        }
+    };
+    L.geoJSON(geojsonFeature).addTo(map);
+</script>
+
+
+</html>

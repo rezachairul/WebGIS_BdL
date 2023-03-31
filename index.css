@@ -1,0 +1,17 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.section-statistic{
+    margin: 25px 8px 10px;
+}
+
+
+.section-about h3{
+    margin: 25px 0 5px;
+}
+
+
+#map{
+    height: 80vh;
+}
